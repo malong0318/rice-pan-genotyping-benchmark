@@ -1,0 +1,32 @@
+category	public_file	original_source	role
+graph	graph/build_mc_cactus_pangenome.sh	new reconstruction script	Rebuild 36-genome MC graph with Minigraph-Cactus
+graph	graph/run_pggb_rice36_full_genome.slurm	benchmark/code/creat_graph/run_pggb_rice36_full_genome.slurm	Build whole-genome PGGB graph
+graph	graph/deconstruct_pggb_vg.slurm	benchmark/code/deconstruct_pggb_vg.slurm	Export PGGB graph variants with vg deconstruct
+graph	graph/deconstruct_minigraph_vg.slurm	benchmark/code/deconstruct_minigraph_vg.slurm	Export minigraph graph variants with vg deconstruct
+graph	graph/merge_pggb_chrom_gfa.slurm	benchmark/code/merge_pggb_chrom_gfa.slurm	Join chromosome-level PGGB GFA files
+reads	reads/downsample_illumina_depths.slurm	benchmark/code/downsample_illumina_depths.slurm	Create paired-end target-depth datasets
+truth	truth/01generate_truth_sets.sh	benchmark/paper/01generate_truth_sets.sh	Generate assembly-derived truth calls and final truth sets
+truth	truth/prepare_truth_chr_vcfs.sh	benchmark/truth/prepare_truth_chr_vcfs.sh	Normalize names, reference headers, records, and indexes
+truth	truth/call_truth.slurm	benchmark/code/call_truth.slurm	Truth calling workflow component
+truth	truth/call_syri_sv.slurm	benchmark/code/call_syri_sv.slurm	Assembly-based SV calling component
+truth	truth/clean_syri_sv_truth.slurm	benchmark/code/clean_syri_sv_truth.slurm	SyRI SV truth filtering
+truth	truth/clean_svim_sv_truth.slurm	benchmark/code/clean_svim_sv_truth.slurm	SVIM-asm SV truth filtering
+vcf_processing	vcf_processing/classify_all_vcfs.sh	benchmark/01classify_vcf/classify_all_vcfs.sh	Unified SNP/small-indel/SV/other classification
+vcf_processing	vcf_processing/prepare_classified_eval_inputs2_common.sh	benchmark/code2/prepare_classified_eval_inputs2_common.sh	Prepare VG/PanGenie/BayesTyper VCFs
+vcf_processing	vcf_processing/prepare_graphtyper_eval_inputs3.sh	benchmark/code2/prepare_graphtyper_eval_inputs3.sh	Prepare GraphTyper2 evaluation VCFs
+genotyping	genotyping/vg/run_all_illumina_mc_vg.slurm	benchmark/code2/03vg/run_all_illumina_mc_vg.slurm	Call variants with VG on MC
+genotyping	genotyping/vg/run_all_illumina_minigraph_vg.slurm	benchmark/code2/03vg/run_all_illumina_minigraph_vg.slurm	Call variants with VG on minigraph
+genotyping	genotyping/pangenie/run_all_*_pangenie.sh	benchmark/code2/02pangenie/	Call genotypes with PanGenie on MC, PGGB, and minigraph
+genotyping	genotyping/graphtyper/run_all_illumina_*_graphtyper.sh	benchmark/code2/01graphtyper/	Call genotypes with GraphTyper2 on MC, PGGB, and minigraph
+genotyping	genotyping/bayestyper/run_all_illumina_*_bayestyper_128.slurm	benchmark/code2/04bayestyper/	Call genotypes with BayesTyper on MC, PGGB, and minigraph
+graph_indexes	graph_indexes/*.slurm	benchmark/code/index/	Build VG graph indexes
+evaluation	evaluation/03run_all_evaluations.sh	benchmark/paper/03run_all_evaluations.sh	RTG vcfeval and Truvari evaluation workflow
+evaluation	evaluation/make_evaluation_summary_png.py	benchmark/evaluation/make_evaluation_summary_png.py	Render per-tool evaluation summaries
+performance	performance/run_*_performance.sh	benchmark/code_performance/run_*_performance.sh	11 tool/graph performance launchers
+performance	performance/run_performance_task.sh	benchmark/code_performance/run_performance_task.sh	Shared timed benchmark task
+performance	performance/performance_common.sh	benchmark/code_performance/performance_common.sh	Resource logging helpers
+statistics	statistics/06generate_benchmark_metadata.sh	benchmark/paper/06generate_benchmark_metadata.sh	Generate benchmark metadata manifests
+statistics	statistics/07generate_result_statistics.sh	benchmark/paper/07generate_result_statistics.sh	Aggregate accuracy statistics
+statistics	statistics/08generate_performance_statistics.sh	benchmark/paper/08generate_performance_statistics.sh	Aggregate performance statistics
+statistics	statistics/make_performance_summary_png.py	benchmark/code_performance/make_performance_summary_png.py	Plot performance summary
+figures	figures/plot_figure*.py and export_figure*.py	benchmark/paper figure source scripts	Export figure data and render Figures 2-6

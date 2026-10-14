@@ -1,0 +1,18 @@
+# OS junk
+Thumbs.db
+.DS_Store
+Desktop.ini
+*.swp
+*.swo
+~$*
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# R
+.Rhistory
+.RData
